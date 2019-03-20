@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: openweather-virtualsvc
+  namespace: default
+spec:
+  hosts:
+  - "openweather.157.230.73.87.nip.io"
+  gateways:
+  - openweather-ingressgateway
+  http:
+  - match:
+    - uri:
+        exact: /
+    route:
+    - destination:
+        host: openweather-svc
+  - route:
+    - destination:
+        host: openweather-svc
