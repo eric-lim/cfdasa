@@ -1,0 +1,29 @@
+# Default values for weatherapp.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: balanus/weatherapp
+  tag: fixedv1
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+APP_ID: "f1d50f7f855cb9cddf3817c674a8cd4f"
+
+productionEnv: false
+productionReplicaCount: 2
+
+defaultcity: "Japan"
+
+gateway:
+  domainname: "157.230.73.87.nip.io" 
+  port: 80
